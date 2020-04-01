@@ -13,13 +13,3 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-_yum:
-  - { state: "latest", name: "bridge-utils" }
-  - { state: "latest", name: "dnsmasq" }
-  - { state: "latest", name: "ebtables" }
-  - { state: "latest", name: "libvirt" }
-  - { state: "latest", name: "libvirt-client" }
-  - { state: "latest", name: "qemu-img" }
-  - { state: "latest", name: "qemu-kvm" }
-  - { state: "latest", name: "virt-install" }

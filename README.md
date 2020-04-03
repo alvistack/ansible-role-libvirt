@@ -1,6 +1,6 @@
 # Ansible Role for libvirt
 
-[![Travis](https://img.shields.io/travis/alvistack/ansible-role-libvirt.svg)](https://travis-ci.org/alvistack/ansible-role-libvirt)
+[![Travis](https://img.shields.io/travis/com/alvistack/ansible-role-libvirt.svg)](https://travis-ci.com/alvistack/ansible-role-libvirt)
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-libvirt.svg)](https://github.com/alvistack/ansible-role-libvirt)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-libvirt.svg)](https://github.com/alvistack/ansible-role-libvirt/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.libvirt-blue.svg)](https://galaxy.ansible.com/alvistack/libvirt)

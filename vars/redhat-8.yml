@@ -15,7 +15,6 @@
 # limitations under the License.
 
 _yum:
-  - { state: "latest", name: "bridge-utils" }
   - { state: "latest", name: "dnsmasq" }
   - { state: "latest", name: "ebtables" }
   - { state: "latest", name: "libvirt" }

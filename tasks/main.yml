@@ -47,3 +47,17 @@
         - "."
   ignore_errors: true
   tags: libvirt
+
+- name: vagrant plugin install vagrant-libvirt
+  environment:
+    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  shell: |
+    set -o pipefail
+    alternatives --set ld /usr/bin/ld.gold
+    vagrant plugin install vagrant-libvirt
+  args:
+    executable: "/bin/bash"
+  register: result
+  until: result is succeeded
+  changed_when: result is not succeeded
+  tags: libvirt

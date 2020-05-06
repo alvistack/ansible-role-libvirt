@@ -14,15 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_apt:
-  - { state: "latest", name: "binutils" }
-  - { state: "latest", name: "bridge-utils" }
-  - { state: "latest", name: "dnsmasq-base" }
-  - { state: "latest", name: "ebtables" }
-  - { state: "latest", name: "libvirt-clients" }
-  - { state: "latest", name: "libvirt-daemon-system" }
-  - { state: "latest", name: "libvirt-dev" }
-  - { state: "latest", name: "make" }
-  - { state: "latest", name: "qemu-kvm" }
-  - { state: "latest", name: "qemu-utils" }
-  - { state: "latest", name: "ruby-dev" }
+- name: vagrant
+  src: https://github.com/alvistack/ansible-role-vagrant
+  version: develop

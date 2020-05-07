@@ -23,4 +23,6 @@
   loop: "{{ _zypper }}"
   register: result
   until: result is succeeded
+  notify:
+    - libvirt | systemctl restart libvirtd
   tags: libvirt

@@ -14,9 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: libvirt | systemctl restart libvirtd
+- name: libvirt | systemctl restart libvirtd.service
   service:
-    name: "libvirtd"
+    name: "libvirtd.service"
     state: "restarted"
     enabled: true
   loop: "{{ ansible_play_hosts }}"

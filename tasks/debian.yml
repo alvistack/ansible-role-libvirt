@@ -22,5 +22,5 @@
   register: result
   until: result is succeeded
   notify:
-    - libvirt | systemctl restart libvirtd
+    - libvirt | systemctl restart libvirtd.service
   tags: libvirt

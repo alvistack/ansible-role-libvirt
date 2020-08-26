@@ -48,9 +48,9 @@
   ignore_errors: true
   tags: libvirt
 
-- name: systemctl start libvirtd
+- name: systemctl start libvirtd.service
   service:
-    name: "libvirtd"
+    name: "libvirtd.service"
     state: "started"
     enabled: true
   changed_when: false

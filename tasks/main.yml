@@ -45,6 +45,9 @@
         - "."
   ignore_errors: true
 
+- name: flush handlers
+  meta: flush_handlers
+
 - name: systemctl start libvirtd.service
   service:
     name: "libvirtd.service"
@@ -52,9 +55,6 @@
     enabled: true
   changed_when: false
   ignore_errors: true
-
-- name: flush handlers
-  meta: flush_handlers
 
 - name: vagrant plugin install vagrant-libvirt
   environment:

@@ -19,6 +19,7 @@ _zypper:
   - { state: "latest", name: "bridge-utils" }
   - { state: "latest", name: "dnsmasq" }
   - { state: "latest", name: "ebtables" }
+  - { state: "latest", name: "guestfs-tools" }
   - { state: "latest", name: "libvirt" }
   - { state: "latest", name: "libvirt-client" }
   - { state: "latest", name: "libvirt-devel" }

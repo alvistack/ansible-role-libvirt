@@ -19,6 +19,7 @@ _apt:
   - { state: "latest", name: "bridge-utils" }
   - { state: "latest", name: "dnsmasq-base" }
   - { state: "latest", name: "ebtables" }
+  - { state: "latest", name: "libguestfs-tools" }
   - { state: "latest", name: "libvirt-bin" }
   - { state: "latest", name: "libvirt-dev" }
   - { state: "latest", name: "make" }

@@ -18,6 +18,7 @@ _yum:
   - { state: "latest", name: "binutils" }
   - { state: "latest", name: "dnsmasq" }
   - { state: "latest", name: "ebtables" }
+  - { state: "latest", name: "libguestfs-tools-c" }
   - { state: "latest", name: "libvirt" }
   - { state: "latest", name: "libvirt-client" }
   - { state: "latest", name: "libvirt-devel", enablerepo: "codeready-builder-for-rhel-8-x86_64-rpms" }

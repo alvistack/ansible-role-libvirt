@@ -16,7 +16,6 @@
 
 - name: include default variables
   include_vars: "../vars/main.yml"
-  tags: libvirt
 
 - name: include release specific variables
   include_vars: "{{ lookup('first_found', _params) }}"
@@ -31,7 +30,6 @@
       paths:
         - "../vars"
   ignore_errors: true
-  tags: libvirt
 
 - name: include release specific tasks
   include_tasks: "{{ lookup('first_found', _params) }}"
@@ -46,7 +44,9 @@
       paths:
         - "."
   ignore_errors: true
-  tags: libvirt
+
+- name: flush handlers
+  meta: flush_handlers
 
 - name: systemctl start libvirtd.service
   service:
@@ -55,11 +55,6 @@
     enabled: true
   changed_when: false
   ignore_errors: true
-  tags: libvirt
-
-- name: flush handlers
-  meta: flush_handlers
-  tags: libvirt
 
 - name: vagrant plugin install vagrant-libvirt
   environment:
@@ -73,4 +68,3 @@
   register: result
   until: result is succeeded
   changed_when: result is not succeeded
-  tags: libvirt

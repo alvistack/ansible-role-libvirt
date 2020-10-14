@@ -18,6 +18,7 @@ _yum:
   - { state: "latest", name: "binutils-gold" }
   - { state: "latest", name: "dnsmasq" }
   - { state: "latest", name: "ebtables" }
+  - { state: "latest", name: "libguestfs-tools-c" }
   - { state: "latest", name: "libvirt" }
   - { state: "latest", name: "libvirt-client" }
   - { state: "latest", name: "libvirt-devel" }

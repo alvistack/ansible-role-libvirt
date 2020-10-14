@@ -24,4 +24,3 @@
   until: result is succeeded
   notify:
     - libvirt | systemctl restart libvirtd.service
-  tags: libvirt

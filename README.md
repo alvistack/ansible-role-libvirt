@@ -1,6 +1,6 @@
 # Ansible Role for libvirt
 
-[![Travis](https://img.shields.io/travis/com/alvistack/ansible-role-libvirt.svg)](https://travis-ci.com/alvistack/ansible-role-libvirt)
+[![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-libvirt/master)](https://gitlab.com/alvistack/ansible-role-libvirt/-/pipelines)
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-libvirt.svg)](https://github.com/alvistack/ansible-role-libvirt/releases)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-libvirt.svg)](https://github.com/alvistack/ansible-role-libvirt/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.libvirt-blue.svg)](https://galaxy.ansible.com/alvistack/libvirt)
@@ -13,11 +13,11 @@ This role require Ansible 2.10 or higher.
 
 This role was designed for:
 
-  - Ubuntu 18.04/20.04
+  - Ubuntu 18.04/20.04/20.10
   - RHEL/CentOS 7/8
   - openSUSE Leap 15.2
   - Debian 10
-  - Fedora 32
+  - Fedora 33
 
 ## Role Variables
 

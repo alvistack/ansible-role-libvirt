@@ -62,7 +62,7 @@
   shell: |
     set -o pipefail
     alternatives --set ld /usr/bin/ld.gold
-    vagrant plugin install vagrant-libvirt
+    sudo -u vagrant vagrant plugin install vagrant-libvirt
   args:
     executable: "/bin/bash"
   register: result

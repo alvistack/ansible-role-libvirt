@@ -4,6 +4,7 @@
 
 ### Major Changes
 
+  - Running QEMU with root for 9p
   - Migrate from Travis CI to GitLab CI
   - Support Fedora 33
   - Remove Fedora 32 support

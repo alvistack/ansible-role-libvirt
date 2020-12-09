@@ -94,7 +94,7 @@
   environment:
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   shell: |
-    set -o pipefail
+    set -euo pipefail
     alternatives --set ld /usr/bin/ld.gold
     vagrant plugin install vagrant-libvirt
   args:

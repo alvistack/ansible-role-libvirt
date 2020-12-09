@@ -22,7 +22,7 @@ _yum:
   - { state: "latest", name: "libguestfs-tools-c" }
   - { state: "latest", name: "libvirt" }
   - { state: "latest", name: "libvirt-client" }
-  - { state: "latest", name: "libvirt-devel", enablerepo: "PowerTools" }
+  - { state: "latest", name: "libvirt-devel", enablerepo: "powertools" }
   - { state: "latest", name: "make" }
   - { state: "latest", name: "qemu-img" }
   - { state: "latest", name: "qemu-kvm" }

@@ -95,7 +95,7 @@
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   shell: |
     set -euo pipefail
-    alternatives --set ld /usr/bin/ld.gold
+    ln -fs /usr/bin/ld.gold /usr/bin/ld
     vagrant plugin install vagrant-libvirt
   args:
     executable: "/bin/bash"

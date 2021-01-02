@@ -54,6 +54,7 @@
     state: "{{ item.state | default('directory') }}"
   loop:
     - { dest: "/etc/libvirt" }
+    - { dest: "/etc/profile.d" }
 
 - name: copy templates
   template:
@@ -64,6 +65,7 @@
     mode: "{{ item.mode | default('0644') }}"
   loop:
     - { dest: "/etc/libvirt/qemu.conf" }
+    - { dest: "/etc/profile.d/vagrant-libvirt.sh" }
   notify:
     - libvirt | systemctl restart libvirtd.service
 
@@ -76,6 +78,7 @@
     state: "{{ item.state | default('file') }}"
   loop:
     - { dest: "/etc/libvirt/qemu.conf" }
+    - { dest: "/etc/profile.d/vagrant-libvirt.sh" }
   notify:
     - libvirt | systemctl restart libvirtd.service
 

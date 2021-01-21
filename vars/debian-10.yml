@@ -28,3 +28,4 @@ _apt:
   - { state: "latest", name: "qemu-kvm" }
   - { state: "latest", name: "qemu-utils" }
   - { state: "latest", name: "ruby-dev" }
+  - { state: "latest", name: "virt-manager" }

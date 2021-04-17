@@ -4,6 +4,7 @@
 
 ### Major Changes
 
+  - Support [Virtio-fs](https://virtio-fs.gitlab.io/)
   - Support Fedora 34
   - Support Ubuntu 21.04
 

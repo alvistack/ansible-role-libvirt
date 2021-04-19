@@ -833,7 +833,7 @@ group = "{{ libvirt_qemu_group }}"
 
 # This directory is used for memoryBacking source if configured as file.
 # NOTE: big files will be stored here
-#memory_backing_dir = "/var/lib/libvirt/qemu/ram"
+memory_backing_dir = "/dev/shm"
 
 # Path to the SCSI persistent reservations helper. This helper is
 # used whenever <reservations/> are enabled for SCSI LUN devices.

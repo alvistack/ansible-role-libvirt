@@ -4,6 +4,11 @@
 
 ### Major Changes
 
+  - Enable PPA for Ubuntu 18.04, 20.04, 20.10
+  - Support [Virtio-fs](https://virtio-fs.gitlab.io/)
+  - Support Fedora 34
+  - Support Ubuntu 21.04
+
 ## 4.7.0 - 2021-03-13
 
 ### Major Changes

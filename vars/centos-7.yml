@@ -30,3 +30,5 @@ _yum:
   - { state: "latest", name: "ruby-devel" }
   - { state: "latest", name: "virt-install" }
   - { state: "latest", name: "virt-manager" }
+  - { state: "latest", name: "virt-p2v-maker" }
+  - { state: "latest", name: "virt-v2v" }

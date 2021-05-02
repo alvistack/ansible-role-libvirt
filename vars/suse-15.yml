@@ -30,3 +30,4 @@ _zypper:
   - { state: "latest", name: "ruby-devel" }
   - { state: "latest", name: "virt-install" }
   - { state: "latest", name: "virt-manager" }
+  - { state: "latest", name: "virt-v2v" }

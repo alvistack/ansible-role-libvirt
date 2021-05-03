@@ -55,6 +55,7 @@
   loop:
     - { dest: "/etc/libvirt" }
     - { dest: "/etc/profile.d" }
+    - { dest: "/var/lib/libvirt/images", owner: "root", group: "libvirt", mode: "0750" }
 
 - name: copy templates
   template:

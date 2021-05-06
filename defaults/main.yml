@@ -18,4 +18,4 @@
 libvirt_qemu_user: "root"
 
 # The group for QEMU processes run by the system instance.
-libvirt_qemu_group: "root"
+libvirt_qemu_group: "libvirt"

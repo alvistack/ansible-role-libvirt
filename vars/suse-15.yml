@@ -17,6 +17,7 @@
 _zypper:
   - { state: "latest", name: "binutils-gold" }
   - { state: "latest", name: "bridge-utils" }
+  - { state: "latest", name: "bsdtar" }
   - { state: "latest", name: "dnsmasq" }
   - { state: "latest", name: "ebtables" }
   - { state: "latest", name: "gcc" }
@@ -30,3 +31,4 @@ _zypper:
   - { state: "latest", name: "ruby-devel" }
   - { state: "latest", name: "virt-install" }
   - { state: "latest", name: "virt-manager" }
+  - { state: "latest", name: "virt-v2v" }

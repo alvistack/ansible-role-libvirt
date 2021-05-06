@@ -18,9 +18,14 @@ _apt_key:
   - url: "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xE996735927E427A733BB653E374C7797FB006459"
     id: "E996735927E427A733BB653E374C7797FB006459"
     state: "present"
+  - url: "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2AD86432DB495A1952DCD3E80F0D6A60644E28D3"
+    id: "2AD86432DB495A1952DCD3E80F0D6A60644E28D3"
+    state: "present"
 
 _apt_repository:
   - repo: "deb http://ppa.launchpad.net/savoury1/virtualisation/ubuntu groovy main"
+    state: "present"
+  - repo: "deb [arch=amd64] https://alvistack.github.io/libguestfs-virt-v2v stable main"
     state: "present"
 
 _apt:
@@ -29,6 +34,7 @@ _apt:
   - { state: "latest", name: "dnsmasq-base" }
   - { state: "latest", name: "ebtables" }
   - { state: "latest", name: "gcc" }
+  - { state: "latest", name: "libarchive-tools" }
   - { state: "latest", name: "libguestfs-tools" }
   - { state: "latest", name: "libvirt-clients" }
   - { state: "latest", name: "libvirt-daemon-system" }
@@ -38,3 +44,5 @@ _apt:
   - { state: "latest", name: "qemu-utils" }
   - { state: "latest", name: "ruby-dev" }
   - { state: "latest", name: "virt-manager" }
+  - { state: "latest", name: "virt-p2v" }
+  - { state: "latest", name: "virt-v2v" }

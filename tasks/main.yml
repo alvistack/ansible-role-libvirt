@@ -29,7 +29,6 @@
         - "{{ ansible_os_family | lower }}.yml"
       paths:
         - "../vars"
-  ignore_errors: true
 
 - name: include release specific tasks
   include_tasks: "{{ lookup('first_found', _params) }}"
@@ -43,7 +42,6 @@
         - "{{ ansible_os_family | lower }}.yml"
       paths:
         - "."
-  ignore_errors: true
 
 - name: prepare directories
   file:
@@ -55,6 +53,11 @@
   loop:
     - { dest: "/etc/libvirt" }
     - { dest: "/etc/profile.d" }
+    - { dest: "/var/lib/libvirt/images", mode: "1777" }
+    - dest: "/var/lib/libvirt/qemu"
+      owner: "{{ libvirt_qemu_user }}"
+      group: "{{ libvirt_qemu_group }}"
+      mode: "0750"
 
 - name: copy templates
   template:
@@ -91,7 +94,7 @@
     state: "started"
     enabled: true
   changed_when: false
-  ignore_errors: true
+  failed_when: false
 
 - name: vagrant plugin install vagrant-libvirt
   environment:
@@ -101,8 +104,8 @@
     ln -fs /usr/bin/ld.gold /usr/bin/ld
     TMP_DIR="$(mktemp -d)" \
       && cd $TMP_DIR \
-      && curl -skL -m 300 -O https://github.com/alvistack/vagrant-libvirt-vagrant-libvirt/releases/download/0.4.2.pre.5/vagrant-libvirt-0.4.2.pre.5.gem \
-      && vagrant plugin install ./vagrant-libvirt-0.4.2.pre.5.gem \
+      && curl -skL -m 300 -O https://github.com/alvistack/vagrant-libvirt-vagrant-libvirt/releases/download/0.4.1/vagrant-libvirt-0.4.1+virtiofs.gem \
+      && vagrant plugin install $TMP_DIR/vagrant-libvirt-0.4.1+virtiofs.gem \
       && rm -rf $TMP_DIR
   args:
     executable: "/bin/bash"

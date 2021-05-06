@@ -16,6 +16,7 @@
 
 _yum:
   - { state: "latest", name: "binutils-gold" }
+  - { state: "latest", name: "bsdtar" }
   - { state: "latest", name: "dnsmasq" }
   - { state: "latest", name: "ebtables" }
   - { state: "latest", name: "gcc" }

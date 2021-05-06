@@ -17,6 +17,7 @@
 _yum:
   - { state: "latest", name: "binutils" }
   - { state: "latest", name: "bridge-utils" }
+  - { state: "latest", name: "bsdtar" }
   - { state: "latest", name: "dnsmasq" }
   - { state: "latest", name: "ebtables" }
   - { state: "latest", name: "gcc" }

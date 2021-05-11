@@ -18,10 +18,10 @@
   remote_user: root
   become: true
   tasks:
-#    - name: include role
-#      include_role:
-#        name: vagrant
-#      tags: vagrant
+    - name: include role
+      include_role:
+        name: vagrant
+      tags: vagrant
 
     - name: include role
       include_role:

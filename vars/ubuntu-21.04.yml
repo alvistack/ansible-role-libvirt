@@ -15,12 +15,12 @@
 # limitations under the License.
 
 _apt_key:
-  - url: "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2AD86432DB495A1952DCD3E80F0D6A60644E28D3"
-    id: "2AD86432DB495A1952DCD3E80F0D6A60644E28D3"
+  - url: "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xE996735927E427A733BB653E374C7797FB006459"
+    id: "E996735927E427A733BB653E374C7797FB006459"
     state: "present"
 
 _apt_repository:
-  - repo: "deb [arch=amd64] https://alvistack.github.io/libguestfs-virt-v2v stable main"
+  - repo: "deb http://ppa.launchpad.net/savoury1/virtualisation/ubuntu groovy main"
     state: "present"
 
 _apt:

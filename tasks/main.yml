@@ -18,7 +18,10 @@
   include_vars: "../vars/main.yml"
 
 - name: include release specific variables
-  include_vars: "{{ lookup('first_found', _params) }}"
+  include_vars: "{{ _loop_var }}"
+  loop: "{{ query('first_found', _params) }}"
+  loop_control:
+    loop_var: _loop_var
   vars:
     _params:
       files:
@@ -29,9 +32,13 @@
         - "{{ ansible_os_family | lower }}.yml"
       paths:
         - "../vars"
+      skip: true
 
 - name: include release specific tasks
-  include_tasks: "{{ lookup('first_found', _params) }}"
+  include_tasks: "{{ _loop_var }}"
+  loop: "{{ query('first_found', _params) }}"
+  loop_control:
+    loop_var: _loop_var
   vars:
     _params:
       files:
@@ -42,6 +49,7 @@
         - "{{ ansible_os_family | lower }}.yml"
       paths:
         - "."
+      skip: true
 
 - name: prepare directories
   file:
@@ -53,11 +61,24 @@
   loop:
     - { dest: "/etc/libvirt" }
     - { dest: "/etc/profile.d" }
-    - { dest: "/var/lib/libvirt/images", mode: "1777" }
+    - dest: "/var/lib/libvirt/images"
+      owner: "{{ libvirt_qemu_user }}"
+      group: "{{ libvirt_qemu_group }}"
+      mode: "1777"
     - dest: "/var/lib/libvirt/qemu"
       owner: "{{ libvirt_qemu_user }}"
       group: "{{ libvirt_qemu_group }}"
       mode: "0750"
+
+- name: umask 0027
+  shell: |
+    set -euo pipefail
+    cd /var/lib/libvirt/images
+    umask 0027
+  args:
+    executable: "/bin/bash"
+  changed_when: false
+  failed_when: false
 
 - name: copy templates
   template:
@@ -104,8 +125,8 @@
     ln -fs /usr/bin/ld.gold /usr/bin/ld
     TMP_DIR="$(mktemp -d)" \
       && cd $TMP_DIR \
-      && curl -skL -m 300 -O https://github.com/alvistack/vagrant-libvirt-vagrant-libvirt/releases/download/0.4.1/vagrant-libvirt-0.4.1+virtiofs.gem \
-      && vagrant plugin install $TMP_DIR/vagrant-libvirt-0.4.1+virtiofs.gem \
+      && curl -skL -m 300 -O https://github.com/alvistack/vagrant-libvirt-vagrant-libvirt/releases/download/0.4.1/vagrant-libvirt-0.4.1+virt-v2v.gem \
+      && vagrant plugin install $TMP_DIR/vagrant-libvirt-0.4.1+virt-v2v.gem \
       && rm -rf $TMP_DIR
   args:
     executable: "/bin/bash"

@@ -4,6 +4,7 @@
 
 ### Major Changes
 
+  - Upgrade minimal Ansible support to 4.0.0
   - Enable PPA for Ubuntu 18.04, 20.04, 20.10
   - Support [Virtio-fs](https://virtio-fs.gitlab.io/)
   - Support Fedora 34

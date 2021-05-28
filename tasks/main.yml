@@ -123,11 +123,7 @@
   shell: |
     set -euo pipefail
     ln -fs /usr/bin/ld.gold /usr/bin/ld
-    TMP_DIR="$(mktemp -d)" \
-      && cd $TMP_DIR \
-      && curl -skL -m 300 -O https://github.com/alvistack/vagrant-libvirt-vagrant-libvirt/releases/download/0.4.1/vagrant-libvirt-0.4.1+virt-v2v.gem \
-      && vagrant plugin install $TMP_DIR/vagrant-libvirt-0.4.1+virt-v2v.gem \
-      && rm -rf $TMP_DIR
+    vagrant plugin install vagrant-libvirt
   args:
     executable: "/bin/bash"
   register: result

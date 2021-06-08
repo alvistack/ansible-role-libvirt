@@ -74,7 +74,7 @@
 
 - name: umask 0027
   shell: |
-    set -euo pipefail
+    set -euxo pipefail
     cd /var/lib/libvirt/images
     umask 0027
   args:
@@ -123,7 +123,7 @@
   environment:
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   shell: |
-    set -euo pipefail
+    set -euxo pipefail
     ln -fs /usr/bin/ld.gold /usr/bin/ld
     vagrant plugin install vagrant-libvirt
   args:

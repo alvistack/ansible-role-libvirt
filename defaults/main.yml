@@ -19,3 +19,6 @@ libvirt_qemu_user: "root"
 
 # The group for QEMU processes run by the system instance.
 libvirt_qemu_group: "libvirt"
+
+# This directory is used for memoryBacking source if configured as file.
+libvirt_qemu_memory_backing_dir: "/dev/shm"

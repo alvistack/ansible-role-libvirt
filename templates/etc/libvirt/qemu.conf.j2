@@ -42,6 +42,12 @@
 #  client-cert.pem - the client certificate signed with the ca-cert.pem
 #  client-key.pem - the client private key
 #
+# If this option is supplied it provides the default for the "_verify" option
+# of specific TLS users such as vnc, backups, migration, etc. The specific
+# users of TLS may override this by setting the specific "_verify" option.
+#
+# When not supplied the specific TLS users provide their own defaults.
+#
 #default_tls_x509_verify = 1
 
 #
@@ -111,12 +117,12 @@
 # issuing an x509 certificate to every client who needs to connect.
 #
 # Enabling this option will reject any client that does not have a
-# ca-cert.pem certificate signed by the CA in the vnc_tls_x509_cert_dir
-# (or default_tls_x509_cert_dir) as well as the corresponding client-*.pem
-# files described in default_tls_x509_cert_dir.
+# certificate (as described in default_tls_x509_verify) signed by the
+# CA in the vnc_tls_x509_cert_dir (or default_tls_x509_cert_dir).
 #
 # If this option is not supplied, it will be set to the value of
-# "default_tls_x509_verify".
+# "default_tls_x509_verify". If "default_tls_x509_verify" is not supplied either,
+# the default is "0".
 #
 #vnc_tls_x509_verify = 1
 
@@ -250,12 +256,12 @@
 # issuing an x509 certificate to every client who needs to connect.
 #
 # Enabling this option will reject any client that does not have a
-# ca-cert.pem certificate signed by the CA in the chardev_tls_x509_cert_dir
-# (or default_tls_x509_cert_dir) as well as the corresponding client-*.pem
-# files described in default_tls_x509_cert_dir.
+# certificate (as described in default_tls_x509_verify) signed by the
+# CA in the chardev_tls_x509_cert_dir (or default_tls_x509_cert_dir).
 #
 # If this option is not supplied, it will be set to the value of
-# "default_tls_x509_verify".
+# "default_tls_x509_verify". If "default_tls_x509_verify" is not supplied either,
+# the default is "1".
 #
 #chardev_tls_x509_verify = 1
 
@@ -305,6 +311,15 @@
 #vxhs_tls_x509_cert_dir = "/etc/pki/libvirt-vxhs"
 
 
+# Uncomment and use the following option to override the default secret
+# UUID provided in the default_tls_x509_secret_uuid parameter.
+#
+# NB This default all-zeros UUID will not work. Replace it with the
+# output from the UUID for the TLS secret from a 'virsh secret-list'
+# command and then uncomment the entry
+#
+#vxhs_tls_x509_secret_uuid = "00000000-0000-0000-0000-000000000000"
+
 
 # Enable use of TLS encryption for all NBD disk devices that don't
 # specifically disable it.
@@ -339,12 +354,23 @@
 #nbd_tls_x509_cert_dir = "/etc/pki/libvirt-nbd"
 
 
+# Uncomment and use the following option to override the default secret
+# UUID provided in the default_tls_x509_secret_uuid parameter.
+#
+# NB This default all-zeros UUID will not work. Replace it with the
+# output from the UUID for the TLS secret from a 'virsh secret-list'
+# command and then uncomment the entry
+#
+#nbd_tls_x509_secret_uuid = "00000000-0000-0000-0000-000000000000"
+
+
 # In order to override the default TLS certificate location for migration
 # certificates, supply a valid path to the certificate directory. If the
 # provided path does not exist, libvirtd will fail to start. If the path is
-# not provided, but migrate_tls = 1, then the default_tls_x509_cert_dir path
-# will be used. Once/if a default certificate is enabled/defined, migration
-# will then be able to use the certificate via migration API flags.
+# not provided, but TLS-encrypted migration is requested, then the
+# default_tls_x509_cert_dir path will be used. Once/if a default certificate is
+# enabled/defined, migration will then be able to use the certificate via
+# migration API flags.
 #
 #migrate_tls_x509_cert_dir = "/etc/pki/libvirt-migrate"
 
@@ -357,12 +383,12 @@
 # issuing an x509 certificate to every client who needs to connect.
 #
 # Enabling this option will reject any client that does not have a
-# ca-cert.pem certificate signed by the CA in the migrate_tls_x509_cert_dir
-# (or default_tls_x509_cert_dir) as well as the corresponding client-*.pem
-# files described in default_tls_x509_cert_dir.
+# certificate (as described in default_tls_x509_verify) signed by the
+# CA in the migrate_tls_x509_cert_dir (or default_tls_x509_cert_dir).
 #
 # If this option is not supplied, it will be set to the value of
-# "default_tls_x509_verify".
+# "default_tls_x509_verify". If "default_tls_x509_verify" is not supplied
+# either, the default is "1".
 #
 #migrate_tls_x509_verify = 1
 
@@ -375,6 +401,51 @@
 # command and then uncomment the entry
 #
 #migrate_tls_x509_secret_uuid = "00000000-0000-0000-0000-000000000000"
+
+
+# By default TLS is requested using the VIR_MIGRATE_TLS flag, thus not requested
+# automatically. Setting 'migate_tls_force' to "1" will prevent any migration
+# which is not using VIR_MIGRATE_TLS to ensure higher level of security in
+# deployments with TLS.
+#
+#migrate_tls_force = 0
+
+
+# In order to override the default TLS certificate location for backup NBD
+# server certificates, supply a valid path to the certificate directory. If the
+# provided path does not exist, libvirtd will fail to start. If the path is
+# not provided, but TLS-encrypted backup is requested, then the
+# default_tls_x509_cert_dir path will be used.
+#
+#backup_tls_x509_cert_dir = "/etc/pki/libvirt-backup"
+
+
+# The default TLS configuration only uses certificates for the server
+# allowing the client to verify the server's identity and establish
+# an encrypted channel.
+#
+# It is possible to use x509 certificates for authentication too, by
+# issuing an x509 certificate to every client who needs to connect.
+#
+# Enabling this option will reject any client that does not have a
+# certificate (as described in default_tls_x509_verify) signed by the
+# CA in the backup_tls_x509_cert_dir (or default_tls_x509_cert_dir).
+#
+# If this option is not supplied, it will be set to the value of
+# "default_tls_x509_verify". If "default_tls_x509_verify" is not supplied either,
+# the default is "1".
+#
+#backup_tls_x509_verify = 1
+
+
+# Uncomment and use the following option to override the default secret
+# UUID provided in the default_tls_x509_secret_uuid parameter.
+#
+# NB This default all-zeros UUID will not work. Replace it with the
+# output from the UUID for the TLS secret from a 'virsh secret-list'
+# command and then uncomment the entry
+#
+#backup_tls_x509_secret_uuid = "00000000-0000-0000-0000-000000000000"
 
 
 # By default, if no graphical front end is configured, libvirt will disable
@@ -477,7 +548,7 @@ group = "{{ libvirt_qemu_group }}"
 # What cgroup controllers to make use of with QEMU guests
 #
 #  - 'cpu' - use for scheduler tunables
-#  - 'devices' - use for device whitelisting
+#  - 'devices' - use for device access control
 #  - 'memory' - use for memory tunables
 #  - 'blkio' - use for block devices I/O tunables
 #  - 'cpuset' - use for CPUs and memory nodes
@@ -507,8 +578,7 @@ group = "{{ libvirt_qemu_group }}"
 #cgroup_device_acl = [
 #    "/dev/null", "/dev/full", "/dev/zero",
 #    "/dev/random", "/dev/urandom",
-#    "/dev/ptmx", "/dev/kvm",
-#    "/dev/rtc","/dev/hpet"
+#    "/dev/ptmx", "/dev/kvm"
 #]
 #
 # RDMA migration requires the following extra files to be added to the list:
@@ -823,6 +893,13 @@ group = "{{ libvirt_qemu_group }}"
 #
 #gluster_debug_level = 9
 
+# virtiofsd debug
+#
+# Whether to enable the debugging output of the virtiofsd daemon.
+# Possible values are 0 or 1. Disabled by default.
+#
+#virtiofsd_debug = 1
+
 # To enhance security, QEMU driver is capable of creating private namespaces
 # for each domain started. Well, so far only "mount" namespace is supported. If
 # enabled it means qemu process is unable to see all the devices on the system,
@@ -833,7 +910,7 @@ group = "{{ libvirt_qemu_group }}"
 
 # This directory is used for memoryBacking source if configured as file.
 # NOTE: big files will be stored here
-memory_backing_dir = "/dev/shm"
+memory_backing_dir = "{{ libvirt_qemu_memory_backing_dir }}"
 
 # Path to the SCSI persistent reservations helper. This helper is
 # used whenever <reservations/> are enabled for SCSI LUN devices.
@@ -841,6 +918,9 @@ memory_backing_dir = "/dev/shm"
 
 # Path to the SLIRP networking helper.
 #slirp_helper = "/usr/bin/slirp-helper"
+
+# Path to the dbus-daemon
+#dbus_daemon = "/usr/bin/dbus-daemon"
 
 # User for the swtpm TPM Emulator
 #

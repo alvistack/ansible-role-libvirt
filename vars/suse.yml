@@ -20,21 +20,21 @@ _zypper_repository:
     state: "present"
 
 _zypper:
-  - { state: "latest", name: "binutils-gold" }
-  - { state: "latest", name: "bridge-utils" }
-  - { state: "latest", name: "bsdtar" }
-  - { state: "latest", name: "dnsmasq" }
-  - { state: "latest", name: "ebtables" }
-  - { state: "latest", name: "gcc" }
-  - { state: "latest", name: "guestfs-tools" }
   - { state: "latest", name: "libvirt" }
   - { state: "latest", name: "libvirt-client" }
   - { state: "latest", name: "libvirt-devel" }
-  - { state: "latest", name: "make" }
-  - { state: "latest", name: "qemu-kvm" }
-  - { state: "latest", name: "qemu-tools" }
-  - { state: "latest", name: "ruby-devel" }
-  - { state: "latest", name: "virt-install" }
-  - { state: "latest", name: "virt-manager" }
-  - { state: "latest", name: "virt-p2v" }
-  - { state: "latest", name: "virt-v2v" }
+#  - { state: "latest", name: "binutils-gold" }
+#  - { state: "latest", name: "bridge-utils" }
+#  - { state: "latest", name: "bsdtar" }
+#  - { state: "latest", name: "dnsmasq" }
+#  - { state: "latest", name: "ebtables" }
+#  - { state: "latest", name: "gcc" }
+#  - { state: "latest", name: "guestfs-tools" }
+#  - { state: "latest", name: "make" }
+#  - { state: "latest", name: "qemu-kvm" }
+#  - { state: "latest", name: "qemu-tools" }
+#  - { state: "latest", name: "ruby-devel" }
+#  - { state: "latest", name: "virt-install" }
+#  - { state: "latest", name: "virt-manager" }
+#  - { state: "latest", name: "virt-p2v" }
+#  - { state: "latest", name: "virt-v2v" }

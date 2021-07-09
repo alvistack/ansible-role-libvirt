@@ -119,12 +119,23 @@
   changed_when: false
   failed_when: false
 
+- name: symlink files
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    force: "{{ item.force | default(true) }}"
+    mode: "{{ item.mode | default('0644') }}"
+    state: "{{ item.state | default('link') }}"
+    follow: false
+  loop:
+    - { src: "/usr/bin/ld.gold", dest: "/usr/bin/ld", mode: "0755" }
+
 - name: vagrant plugin install vagrant-libvirt
   environment:
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   shell: |
     set -euxo pipefail
-    ln -fs /usr/bin/ld.gold /usr/bin/ld
+    export CFLAGS="-I/opt/vagrant/embedded/include/ruby-3.0.0/ruby"
     vagrant plugin install vagrant-libvirt
   args:
     executable: "/bin/bash"

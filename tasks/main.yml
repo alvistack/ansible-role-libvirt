@@ -63,24 +63,6 @@
   loop:
     - { dest: "/etc/libvirt" }
     - { dest: "/etc/profile.d" }
-    - dest: "/var/lib/libvirt/images"
-      owner: "{{ libvirt_qemu_user }}"
-      group: "{{ libvirt_qemu_group }}"
-      mode: "1777"
-    - dest: "/var/lib/libvirt/qemu"
-      owner: "{{ libvirt_qemu_user }}"
-      group: "{{ libvirt_qemu_group }}"
-      mode: "0750"
-
-- name: umask 0027
-  shell: |
-    set -euxo pipefail
-    cd /var/lib/libvirt/images
-    umask 0027
-  args:
-    executable: "/bin/bash"
-  changed_when: false
-  failed_when: false
 
 - name: copy templates
   template:

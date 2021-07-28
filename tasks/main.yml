@@ -117,7 +117,6 @@
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   shell: |
     set -euxo pipefail
-    export CFLAGS="-I/opt/vagrant/embedded/include/ruby-3.0.0/ruby"
     vagrant plugin install vagrant-libvirt
   args:
     executable: "/bin/bash"

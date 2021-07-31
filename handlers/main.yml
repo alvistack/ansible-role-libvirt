@@ -24,3 +24,17 @@
   run_once: true
   changed_when: false
   failed_when: false
+
+- name: libvirt | vagrant plugin install vagrant-libvirt
+  environment:
+    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  shell: |
+    set -euxo pipefail
+    ! test -f /bin/install && ln -fs /usr/bin/install /bin/install
+    test -f /usr/bin/ld.gold && ln -fs /usr/bin/ld.gold /usr/bin/ld
+    vagrant plugin install vagrant-libvirt
+  args:
+    executable: "/bin/bash"
+  register: result
+  until: result is succeeded
+  changed_when: result is not succeeded

@@ -41,3 +41,4 @@
   until: result is succeeded
   notify:
     - libvirt | systemctl restart libvirtd.service
+    - libvirt | vagrant plugin install vagrant-libvirt

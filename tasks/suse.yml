@@ -25,14 +25,4 @@
   until: result is succeeded
   notify:
     - libvirt | systemctl restart libvirtd.service
-
-- name: symlink files
-  file:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    force: "{{ item.force | default(true) }}"
-    mode: "{{ item.mode | default('0644') }}"
-    state: "{{ item.state | default('link') }}"
-    follow: false
-  loop:
-    - { src: "/usr/bin/install", dest: "/bin/install", mode: "0755" }
+    - libvirt | vagrant plugin install vagrant-libvirt

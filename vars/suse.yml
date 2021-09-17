@@ -28,7 +28,7 @@ _zypper:
   - { state: "latest", name: "gcc" }
   - { state: "latest", name: "guestfs-tools" }
   - { state: "latest", name: "libvirt-client" }
-  - { state: "latest", name: "libvirt-daemon-qemu" }
+  - { state: "latest", name: "libvirt-daemon" }
   - { state: "latest", name: "libvirt-devel" }
   - { state: "latest", name: "make" }
   - { state: "latest", name: "qemu-tools" }

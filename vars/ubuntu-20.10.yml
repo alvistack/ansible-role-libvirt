@@ -15,12 +15,14 @@
 # limitations under the License.
 
 _apt_key:
-  - url: "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xE996735927E427A733BB653E374C7797FB006459"
+  - keyring: "/etc/apt/trusted.gpg.d/savoury1.gpg"
+    url: "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xE996735927E427A733BB653E374C7797FB006459"
     id: "E996735927E427A733BB653E374C7797FB006459"
     state: "present"
 
 _apt_repository:
-  - repo: "deb http://ppa.launchpad.net/savoury1/virtualisation/ubuntu groovy main"
+  - filename: "savoury1"
+    repo: "deb http://ppa.launchpad.net/savoury1/virtualisation/ubuntu groovy main"
     state: "present"
 
 _apt:
@@ -40,4 +42,3 @@ _apt:
   - { state: "latest", name: "ruby-dev" }
   - { state: "latest", name: "virt-manager" }
   - { state: "latest", name: "virt-p2v" }
-  - { state: "latest", name: "virt-v2v" }

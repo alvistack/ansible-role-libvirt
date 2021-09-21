@@ -1,5 +1,7 @@
 # Ansible Role for libvirt
 
+<img src="/alvistack.svg" width="75" alt="AlviStack">
+
 [![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-libvirt/master)](https://gitlab.com/alvistack/ansible-role-libvirt/-/pipelines)
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-libvirt.svg)](https://github.com/alvistack/ansible-role-libvirt/releases)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-libvirt.svg)](https://github.com/alvistack/ansible-role-libvirt/blob/master/LICENSE)

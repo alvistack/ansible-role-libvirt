@@ -15,7 +15,7 @@
 # limitations under the License.
 
 - name: libvirt | systemctl restart libvirtd.service
-  service:
+  ansible.builtin.service:
     name: "libvirtd.service"
     state: "restarted"
     enabled: true
@@ -28,7 +28,7 @@
 - name: libvirt | vagrant plugin install vagrant-libvirt
   environment:
     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-  shell: |
+  ansible.builtin.shell: |
     set -euxo pipefail
     ! test -f /bin/install && ln -fs /usr/bin/install /bin/install
     test -f /usr/bin/ld.gold && ln -fs /usr/bin/ld.gold /usr/bin/ld

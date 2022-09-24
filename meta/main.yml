@@ -17,6 +17,7 @@
 galaxy_info:
   standalone: true
   role_name: libvirt
+  namespace: alvistack
   author: "Wong Hoi Sing Edison <hswong3i@pantarei-design.com>"
   description: Ansible Role for libvirt Installation
   company: PantaRei Design

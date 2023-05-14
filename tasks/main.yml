@@ -63,6 +63,7 @@
   loop:
     - { dest: "/etc/libvirt" }
     - { dest: "/etc/profile.d" }
+    - { dest: "/etc/apparmor.d/local/abstractions" }
 
 - name: copy templates
   ansible.builtin.template:
@@ -74,6 +75,7 @@
   loop:
     - { dest: "/etc/libvirt/qemu.conf" }
     - { dest: "/etc/profile.d/vagrant-libvirt.sh" }
+    - { dest: "/etc/apparmor.d/local/abstractions/libvirt-qemu" }
   notify:
     - libvirt | systemctl restart libvirtd.service
 
@@ -87,6 +89,7 @@
   loop:
     - { dest: "/etc/libvirt/qemu.conf" }
     - { dest: "/etc/profile.d/vagrant-libvirt.sh" }
+    - { dest: "/etc/apparmor.d/local/abstractions/libvirt-qemu" }
   notify:
     - libvirt | systemctl restart libvirtd.service
 

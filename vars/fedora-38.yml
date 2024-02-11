@@ -41,6 +41,8 @@ _yum:
   - { state: "latest", name: "libvirt" }
   - { state: "latest", name: "libvirt-client" }
   - { state: "latest", name: "libvirt-devel" }
+  - { state: "latest", name: "libxml2-devel" }
+  - { state: "latest", name: "libxslt-devel" }
   - { state: "latest", name: "make" }
   - { state: "latest", name: "qemu-system" }
   - { state: "latest", name: "qemu-utils" }
@@ -49,3 +51,4 @@ _yum:
   - { state: "latest", name: "virt-manager" }
   - { state: "latest", name: "virt-p2v" }
   - { state: "latest", name: "virt-v2v" }
+  - { state: "latest", name: "zlib-devel" }

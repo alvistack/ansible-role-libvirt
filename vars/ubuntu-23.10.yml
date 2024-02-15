@@ -36,6 +36,8 @@ _apt:
   - { state: "latest", name: "libvirt-clients" }
   - { state: "latest", name: "libvirt-daemon" }
   - { state: "latest", name: "libvirt-dev" }
+  - { state: "latest", name: "libxml2-dev" }
+  - { state: "latest", name: "libxslt1-dev" }
   - { state: "latest", name: "make" }
   - { state: "latest", name: "qemu-system" }
   - { state: "latest", name: "qemu-utils" }
@@ -43,3 +45,4 @@ _apt:
   - { state: "latest", name: "virt-manager" }
   - { state: "latest", name: "virt-p2v" }
   - { state: "latest", name: "virt-v2v" }
+  - { state: "latest", name: "zlib1g-dev" }

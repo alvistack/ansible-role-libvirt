@@ -45,4 +45,5 @@ _apt:
   - { state: "latest", name: "virt-manager" }
   - { state: "latest", name: "virt-p2v" }
   - { state: "latest", name: "virt-v2v" }
+  - { state: "latest", name: "virtiofsd" }
   - { state: "latest", name: "zlib1g-dev" }

@@ -15,31 +15,45 @@
 # limitations under the License.
 
 _rpm_key:
-  - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Fedora_38/repodata/repomd.xml.key
+  - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_15.6/repodata/repomd.xml.key
     fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
+    state: present
+  - key: http://downloadcontent.opensuse.org/repositories/Virtualization/15.6/repodata/repomd.xml.key
+    fingerprint: 55A0B34D49501BB7CA474F5AA193FBB572174FC2
     state: present
 
 _yum_repository:
-  - file: home:alvistack
+  - file: home_alvistack
     name: home_alvistack
-    description: home:alvistack (Fedora_38)
-    baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Fedora_38
+    description: home:alvistack (openSUSE_Leap_15.6)
+    baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_15.6
     enabled: true
     priority: "2"
     module_hotfixes: true
     gpgcheck: true
-    gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Fedora_38/repodata/repomd.xml.key
+    gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_15.6/repodata/repomd.xml.key
+    state: present
+  - file: Virtualization
+    name: Virtualization
+    description: Virtualization (openSUSE_Leap_15.6)
+    baseurl: http://downloadcontent.opensuse.org/repositories/Virtualization/15.6
+    enabled: true
+    priority: "2"
+    module_hotfixes: true
+    gpgcheck: true
+    gpgkey: http://downloadcontent.opensuse.org/repositories/Virtualization/15.6/repodata/repomd.xml.key
     state: present
 
-_yum:
+_zypper:
   - { state: latest, name: binutils-gold }
+  - { state: latest, name: bridge-utils }
   - { state: latest, name: bsdtar }
   - { state: latest, name: dnsmasq }
   - { state: latest, name: ebtables }
   - { state: latest, name: gcc }
-  - { state: latest, name: libguestfs-tools-c }
-  - { state: latest, name: libvirt }
+  - { state: latest, name: guestfs-tools }
   - { state: latest, name: libvirt-client }
+  - { state: latest, name: libvirt-daemon }
   - { state: latest, name: libvirt-devel }
   - { state: latest, name: libxml2-devel }
   - { state: latest, name: libxslt-devel }
@@ -49,7 +63,5 @@ _yum:
   - { state: latest, name: ruby-devel }
   - { state: latest, name: virt-install }
   - { state: latest, name: virt-manager }
-  - { state: latest, name: virt-p2v }
   - { state: latest, name: virt-v2v }
-  - { state: latest, name: virtiofsd }
   - { state: latest, name: zlib-devel }

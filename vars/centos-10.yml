@@ -15,24 +15,24 @@
 # limitations under the License.
 
 _rpm_key:
-  - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
+  - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_10_Stream/repodata/repomd.xml.key
     fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
     state: present
 
 _yum_repository:
   - file: home:alvistack
     name: home_alvistack
-    description: home:alvistack (CentOS_9_Stream)
-    baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream
+    description: home:alvistack (CentOS_10_Stream)
+    baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_10_Stream
     enabled: true
     priority: "2"
     module_hotfixes: true
     gpgcheck: true
-    gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
+    gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_10_Stream/repodata/repomd.xml.key
     state: present
 
 _yum:
-  - { state: latest, name: binutils }
+  - { state: latest, name: binutils-gold }
   - { state: latest, name: bsdtar }
   - { state: latest, name: dnsmasq }
   - { state: latest, name: ebtables }
@@ -40,7 +40,7 @@ _yum:
   - { state: latest, name: libguestfs-tools-c }
   - { state: latest, name: libvirt }
   - { state: latest, name: libvirt-client }
-  - { state: latest, name: libvirt-devel, enablerepo: codeready-builder-for-rhel-9-x86_64-rpms }
+  - { state: latest, name: libvirt-devel, enablerepo: crb }
   - { state: latest, name: libxml2-devel }
   - { state: latest, name: libxslt-devel }
   - { state: latest, name: make }
@@ -49,7 +49,7 @@ _yum:
   - { state: latest, name: ruby-devel }
   - { state: latest, name: virt-install }
   - { state: latest, name: virt-manager }
-  - { state: latest, name: virt-p2v-maker }
+  - { state: latest, name: virt-p2v }
   - { state: latest, name: virt-v2v }
   - { state: latest, name: virtiofsd }
   - { state: latest, name: zlib-devel }

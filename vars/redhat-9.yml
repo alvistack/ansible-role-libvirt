@@ -32,7 +32,7 @@ _yum_repository:
     state: present
 
 _yum:
-  - { state: latest, name: binutils }
+  - { state: latest, name: binutils-gold }
   - { state: latest, name: bsdtar }
   - { state: latest, name: dnsmasq }
   - { state: latest, name: ebtables }
@@ -49,7 +49,7 @@ _yum:
   - { state: latest, name: ruby-devel }
   - { state: latest, name: virt-install }
   - { state: latest, name: virt-manager }
-  - { state: latest, name: virt-p2v-maker }
+  - { state: latest, name: virt-p2v }
   - { state: latest, name: virt-v2v }
   - { state: latest, name: virtiofsd }
   - { state: latest, name: zlib-devel }

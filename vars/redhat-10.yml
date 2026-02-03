@@ -15,20 +15,20 @@
 # limitations under the License.
 
 _rpm_key:
-  - key: http://download.opensuse.org/repositories/home:/alvistack/Fedora_42/repodata/repomd.xml.key
+  - key: http://download.opensuse.org/repositories/home:/alvistack/CentOS_10_Stream/repodata/repomd.xml.key
     fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
     state: present
 
 _yum_repository:
   - file: home:alvistack
     name: home_alvistack
-    description: home:alvistack (Fedora_42)
-    baseurl: http://download.opensuse.org/repositories/home:/alvistack/Fedora_42
+    description: home:alvistack (CentOS_10_Stream)
+    baseurl: http://download.opensuse.org/repositories/home:/alvistack/CentOS_10_Stream
     enabled: true
     priority: "2"
     module_hotfixes: true
     gpgcheck: true
-    gpgkey: http://download.opensuse.org/repositories/home:/alvistack/Fedora_42/repodata/repomd.xml.key
+    gpgkey: http://download.opensuse.org/repositories/home:/alvistack/CentOS_10_Stream/repodata/repomd.xml.key
     state: present
 
 _yum:
@@ -40,7 +40,7 @@ _yum:
   - { state: latest, name: libguestfs-tools-c }
   - { state: latest, name: libvirt }
   - { state: latest, name: libvirt-client }
-  - { state: latest, name: libvirt-devel }
+  - { state: latest, name: libvirt-devel, enablerepo: codeready-builder-for-rhel-10-x86_64-rpms }
   - { state: latest, name: libxml2-devel }
   - { state: latest, name: libxslt-devel }
   - { state: latest, name: make }

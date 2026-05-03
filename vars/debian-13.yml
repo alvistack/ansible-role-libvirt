@@ -46,6 +46,5 @@ _apt:
   - { state: latest, name: qemu-system }
   - { state: latest, name: qemu-utils }
   - { state: latest, name: ruby-dev }
-  - { state: latest, name: virt-manager }
   - { state: latest, name: virtiofsd }
   - { state: latest, name: zlib1g-dev }

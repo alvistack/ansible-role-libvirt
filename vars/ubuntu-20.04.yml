@@ -39,6 +39,7 @@ _apt:
   - { state: latest, name: libguestfs-tools }
   - { state: latest, name: libvirt-clients }
   - { state: latest, name: libvirt-daemon }
+  - { state: latest, name: libvirt-daemon-system }
   - { state: latest, name: libvirt-dev }
   - { state: latest, name: libxml2-dev }
   - { state: latest, name: libxslt1-dev }

@@ -39,6 +39,7 @@ _apt:
   - { state: latest, name: libguestfs-tools }
   - { state: latest, name: libvirt-clients }
   - { state: latest, name: libvirt-daemon }
+  - { state: latest, name: libvirt-daemon-system }
   - { state: latest, name: libvirt-dev }
   - { state: latest, name: libxml2-dev }
   - { state: latest, name: libxslt1-dev }
@@ -46,5 +47,4 @@ _apt:
   - { state: latest, name: qemu-system }
   - { state: latest, name: qemu-utils }
   - { state: latest, name: ruby-dev }
-  - { state: latest, name: virt-manager }
   - { state: latest, name: zlib1g-dev }

@@ -62,7 +62,6 @@ _zypper:
   - { state: latest, name: qemu-utils }
   - { state: latest, name: ruby-devel }
   - { state: latest, name: virt-install }
-  - { state: latest, name: virt-manager }
   - { state: latest, name: virt-v2v }
   - { state: latest, name: virtiofsd }
   - { state: latest, name: zlib-devel }

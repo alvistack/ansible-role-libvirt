@@ -31,7 +31,7 @@ _yum_repository:
     gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_10_Stream/repodata/repomd.xml.key
     state: present
 
-_yum:
+_dnf:
   - { state: latest, name: binutils-gold }
   - { state: latest, name: bsdtar }
   - { state: latest, name: dnsmasq }
@@ -48,7 +48,6 @@ _yum:
   - { state: latest, name: qemu-utils }
   - { state: latest, name: ruby-devel }
   - { state: latest, name: virt-install }
-  - { state: latest, name: virt-manager }
   - { state: latest, name: virt-p2v }
   - { state: latest, name: virt-v2v }
   - { state: latest, name: virtiofsd }
